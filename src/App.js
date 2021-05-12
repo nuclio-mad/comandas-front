@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-function App() {
+import { Button, MyDummyParagraph } from './Button'
+
+const App = () => {
+  const [count, setCount] = React.useState(0);
+
+  const updateState = (delta) => {
+    setCount(count + delta);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Counter: <span>{count}</span></p>
+
+      <MyDummyParagraph></MyDummyParagraph>
+
+      <Button value={1} clickHandler={updateState}></Button>
+      <Button value={-1} clickHandler={updateState}></Button>
+      <Button value={-1899} clickHandler={updateState}></Button>
     </div>
   );
 }
